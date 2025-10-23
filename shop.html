@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | EUREKA Luxury Fashion - Elegance in Monochrome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Palet: #000 (Hitam), #fff (Putih), #1a1a1a (Abu Gelap), #AAAAAA (Perak/Aksen Dingin) */
+
+        /* --- Global Styling --- */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        /* --- Header & Navigasi (Diambil dari index.html) --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #000; 
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #fff; 
+        }
+
+        #main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        #main-nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            display: block;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        #main-nav ul li a:hover, #main-nav ul li a.active {
+            color: #AAAAAA;
+        }
+
+        .user-actions a {
+            color: #fff;
+            margin-left: 25px;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        .user-actions a:hover {
+             color: #AAAAAA;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #fff;
+        }
+        /* --- Akhir Header --- */
+
+        /* --- Shop Layout --- */
+        .shop-header {
+            text-align: center;
+            padding: 60px 0 30px;
+        }
+        
+        .shop-header h1 {
+            font-size: 3.5em;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 5px;
+        }
+
+        .shop-layout {
+            display: flex;
+            padding: 40px 0 80px;
+            gap: 40px;
+        }
+
+        /* --- Sidebar (Filter) --- */
+        .sidebar {
+            width: 250px;
+            flex-shrink: 0;
+            padding-top: 20px;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 15px;
+        }
+        
+        .sidebar-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #000;
+        }
+        
+        .sidebar-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar-section ul li a {
+            text-decoration: none;
+            color: #555;
+            display: block;
+            padding: 5px 0;
+            transition: color 0.2s;
+            font-size: 0.95em;
+        }
+        
+        .sidebar-section ul li a:hover, .sidebar-section ul li a.active {
+            color: #000;
+            font-weight: 500;
+        }
+
+        /* Filter Harga */
+        .price-filter button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .price-filter button:hover {
+            background-color: #AAAAAA;
+            color: #000;
+        }
+
+        /* --- Product Grid --- */
+        .product-grid-container {
+            flex-grow: 1;
+        }
+        
+        .sort-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 10px;
+            font-size: 0.9em;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 kolom di desktop */
+            gap: 30px;
+        }
+
+        /* Product Card (Gaya Mewah) */
+        .product-card {
+            background-color: white;
+            border: 1px solid #e5e5e5;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(10%);
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            font-weight: 500;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #000;
+            margin-top: 5px;
+            font-size: 1.1em;
+        }
+
+        .add-to-cart {
+            display: block;
+            text-align: center;
+            background-color: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 0;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+        }
+
+        .add-to-cart:hover {
+            background-color: #AAAAAA;
+            color: #000;
+        }
+        
+        /* --- Footer (Diambil dari index.html) --- */
+        footer {
+            background-color: #000;
+            color: white;
+            padding: 40px 0 10px;
+            font-size: 0.9em;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-section h4 {
+            color: #AAAAAA;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #AAAAAA;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #AAAAAA;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            margin-top: 30px;
+        }
+
+        /* --- Media Queries (Responsif) --- */
+        @media (max-width: 992px) {
+            .shop-layout {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                padding: 0;
+                order: 2; /* Pindah ke bawah di mobile */
+            }
+            .product-grid-container {
+                order: 1;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 kolom di tablet */
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            .shop-header h1 { font-size: 2.5em; letter-spacing: 5px; }
+            .product-grid {
+                grid-template-columns: 1fr; /* 1 kolom di mobile */
+            }
+            /* Styling untuk nav mobile */
+            #main-nav { display: none; width: 100%; position: absolute; top: 60px; left: 0; background-color: #000; }
+            #main-nav ul { flex-direction: column; text-align: center; padding: 10px 0; }
+            .menu-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">EUREKA</div>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="lookbook.html">Lookbook</a></li>
+                <li><a href="sale.html">Sale</a></li>
+                <li><a href="about.html">Tentang Kami</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#"><i class="fas fa-user"></i></a>
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="shop-header">
+            <h1>Koleksi Pria & Wanita</h1>
+            <p>Eksplorasi pilihan terbaik dari gaya minimalis kontemporer.</p>
+        </div>
+
+        <div class="shop-layout">
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Kategori</h3>
+                    <ul>
+                        <li><a href="#">Semua Produk</a></li>
+                        <li><a href="#" class="active">Pakaian Luar (Outerwear)</a></li>
+                        <li><a href="#">Atasan (Tops)</a></li>
+                        <li><a href="#">Bawahan (Bottoms)</a></li>
+                        <li><a href="#">Aksesoris Kulit</a></li>
+                        <li><a href="#">Sepatu</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Filter Warna</h3>
+                    <div style="display: flex; gap: 10px;">
+                        <span style="width: 20px; height: 20px; border-radius: 50%; background-color: #000; border: 1px solid #333;"></span>
+                        <span style="width: 20px; height: 20px; border-radius: 50%; background-color: #fff; border: 1px solid #333;"></span>
+                        <span style="width: 20px; height: 20px; border-radius: 50%; background-color: #AAAAAA; border: 1px solid #333;"></span>
+                        <span style="width: 20px; height: 20px; border-radius: 50%; background-color: #8B0000; border: 1px solid #333;"></span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section price-filter">
+                    <h3>Filter Harga</h3>
+                    <input type="range" min="0" max="5000000" step="100000" value="5000000" style="width: 100%; margin-bottom: 10px;">
+                    <p>Harga Maksimal: **Rp 5.000.000**</p>
+                    <button>Terapkan</button>
+                </div>
+            </aside>
+
+            <section class="product-grid-container">
+                <div class="sort-bar">
+                    <span>Menampilkan 1-12 dari 45 Produk</span>
+                    <select>
+                        <option>Urutkan: Terbaru</option>
+                        <option>Urutkan: Harga Terendah</option>
+                        <option>Urutkan: Harga Tertinggi</option>
+                    </select>
+                </div>
+                
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x400/1a1a1a/fff?text=Trench+Coat+Black" alt="Trench Coat Hitam">
+                        <div class="product-info">
+                            <h3>Classic Trench Coat</h3>
+                            <p class="price">Rp 1.899.000</p>
+                            <a href="#" class="add-to-cart">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x400/dddddd/333?text=Wool+Jacket+Grey" alt="Wool Jacket Abu">
+                        <div class="product-info">
+                            <h3>Wool Jacket Minimalis</h3>
+                            <p class="price">Rp 1.250.000</p>
+                            <a href="#" class="add-to-cart">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x400/ffffff/000?text=Cashmere+Scarf" alt="Cashmere Scarf">
+                        <div class="product-info">
+                            <h3>Cashmere Scarf Deluxe</h3>
+                            <p class="price">Rp 650.000</p>
+                            <a href="#" class="add-to-cart">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x400/333333/fff?text=Suit+Jacket" alt="Suit Jacket">
+                        <div class="product-info">
+                            <h3>Tailored Suit Jacket</h3>
+                            <p class="price">Rp 2.500.000</p>
+                            <a href="#" class="add-to-cart">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x400/808080/fff?text=Leather+Gloves" alt="Leather Gloves">
+                        <div class="product-info">
+                            <h3>Leather Driving Gloves</h3>
+                            <p class="price">Rp 799.000</p>
+                            <a href="#" class="add-to-cart">Lihat Detail</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x400/000000/AAAAAA?text=Oversize+Blazer" alt="Oversize Blazer">
+                        <div class="product-info">
+                            <h3>Oversize Wool Blazer</h3>
+                            <p class="price">Rp 1.600.000</p>
+                            <a href="#" class="add-to-cart">Lihat Detail</a>
+                        </div>
+                    </div>
+                    </div>
+                
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="#" style="text-decoration: none; color: #555; padding: 10px; border: 1px solid #e5e5e5;">&laquo;</a>
+                    <a href="#" style="text-decoration: none; color: #000; padding: 10px; border: 1px solid #000;">1</a>
+                    <a href="#" style="text-decoration: none; color: #555; padding: 10px; border: 1px solid #e5e5e5;">2</a>
+                    <a href="#" style="text-decoration: none; color: #555; padding: 10px; border: 1px solid #e5e5e5;">3</a>
+                    <a href="#" style="text-decoration: none; color: #555; padding: 10px; border: 1px solid #e5e5e5;">&raquo;</a>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content container">
+            <div class="footer-section about">
+                <h4>EUREKA</h4>
+                <p>Luxury is in Simplicity. Temukan desain minimalis dan kualitas tertinggi.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#">Kebijakan Retur</a></li>
+                    <li><a href="#">Panduan Ukuran</a></li>
+                    <li><a href="#">Privasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Hubungi Kami</h4>
+                <p>Email: halo@eureka.com</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 EUREKA Luxury Fashion. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <a href="https://wa.me/628123456789" target="_blank" class="whatsapp-float" aria-label="Chat via WhatsApp" style="position: fixed; bottom: 25px; right: 25px; background-color: #1a1a1a; color: white; border-radius: 50px; line-height: 20px; padding: 15px 20px; z-index: 1000; text-decoration: none; box-shadow: 0 4px 8px rgba(0,0,0,0.3); font-weight: bold;"><i class="fab fa-whatsapp"></i> Chat Kami</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.getElementById('main-nav');
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (nav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

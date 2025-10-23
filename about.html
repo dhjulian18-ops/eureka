@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami | EUREKA Luxury Fashion - Our Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Gaya CSS (Sama dengan halaman lainnya) */
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #1a1a1a; line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: #000; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background-color: #000; color: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 2em; font-weight: 700; letter-spacing: 4px; color: #fff; }
+        #main-nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
+        #main-nav ul li a { text-decoration: none; color: #fff; padding: 10px 20px; display: block; font-weight: 500; transition: color 0.3s; text-transform: uppercase; font-size: 0.9em; }
+        #main-nav ul li a:hover, #main-nav ul li a.active { color: #AAAAAA; }
+        .user-actions a { color: #fff; margin-left: 25px; font-size: 1.2em; transition: color 0.3s; }
+        .user-actions a:hover { color: #AAAAAA; }
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.5em; cursor: pointer; color: #fff; }
+
+        /* --- Gaya Spesifik About --- */
+        .about-header { text-align: center; padding: 80px 0 60px; }
+        .about-header h1 { font-size: 3.5em; text-transform: uppercase; letter-spacing: 8px; margin-bottom: 5px; }
+        
+        .about-section {
+            display: flex;
+            gap: 60px;
+            padding: 40px 0;
+            align-items: center;
+        }
+        .about-section:nth-child(even) { /* Balik urutan gambar dan teks */
+            flex-direction: row-reverse;
+        }
+        
+        .about-text {
+            flex: 1;
+            padding-right: 30px;
+        }
+        .about-text h2 {
+            font-size: 2em;
+            letter-spacing: 3px;
+            text-transform: none;
+            border-bottom: 1px solid #AAAAAA;
+            padding-bottom: 10px;
+        }
+        .about-text p {
+            font-size: 1.05em;
+            margin-bottom: 25px;
+        }
+        .about-image {
+            flex: 1;
+        }
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- Komitmen Kualitas --- */
+        .quality-commitment {
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 80px 0;
+            margin-top: 50px;
+        }
+        .quality-commitment h2 {
+            border-color: #000;
+        }
+        .commitment-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .commitment-item {
+            flex: 1;
+            padding: 20px;
+        }
+        .commitment-item i {
+            font-size: 2.5em;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        .commitment-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* --- Footer & Responsif (Diringkas) --- */
+        footer { background-color: #000; color: white; padding: 40px 0 10px; font-size: 0.9em; }
+        .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .footer-section { flex: 1; min-width: 200px; }
+        .footer-section h4 { color: #AAAAAA; margin-bottom: 15px; font-weight: 600; text-transform: uppercase; }
+        .social-links a { color: white; font-size: 1.5em; margin-right: 15px; transition: color 0.3s; }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #333; margin-top: 30px; }
+        
+        @media (max-width: 992px) {
+            .about-section { flex-direction: column; gap: 30px; text-align: center; }
+            .about-section:nth-child(even) { flex-direction: column; }
+            .about-text { padding-right: 0; }
+            .commitment-grid { flex-direction: column; }
+        }
+        @media (max-width: 768px) {
+            .about-header h1 { font-size: 2.5em; letter-spacing: 5px; }
+            /* Navigasi Mobile */
+            #main-nav { display: none; width: 100%; position: absolute; top: 60px; left: 0; background-color: #000; }
+            #main-nav ul { flex-direction: column; text-align: center; padding: 10px 0; }
+            .menu-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">EUREKA</div>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="eureka_silver.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="lookbook.html">Lookbook</a></li>
+                <li><a href="sale.html">Sale</a></li>
+                <li><a href="about.html" class="active">Tentang Kami</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#"><i class="fas fa-user"></i></a>
+            <button class="menu-toggle" aria-label="Toggle Navigation"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="about-header">
+            <h1>Filosofi Kami</h1>
+            <p>Eureka lahir dari keyakinan bahwa *kemewahan terletak pada kesederhanaan*.</p>
+        </div>
+
+        <section class="about-section">
+            <div class="about-text">
+                <h2>Awal Mula Penemuan</h2>
+                <p>Didirikan pada tahun 2024, EUREKA adalah hasil pencarian akan kualitas abadi dan desain yang bersih. Kami menolak tren sesaat dan berfokus pada siluet klasik yang disempurnakan. Nama "Eureka" mencerminkan momen penemuan: menemukan pakaian yang benar-benar mewakili diri Anda.</p>
+                <p>Setiap potongan dirancang untuk menjadi investasi, bukan pembelian musiman. Kami berdedikasi pada keahlian menjahit, bahan baku etis, dan proses produksi yang transparan.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://via.placeholder.com/600x400/1a1a1a/fff?text=Our+Founder" alt="Foto Pendiri">
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-text">
+                <h2>Komitmen Berkelanjutan</h2>
+                <p>Kami menyadari tanggung jawab kami terhadap planet ini. EUREKA berkomitmen untuk meminimalkan dampak lingkungan dengan menggunakan katun organik, wol daur ulang, dan kemasan minimal. Desain kami yang abadi mendorong konsumen untuk membeli lebih sedikit tetapi memilih yang terbaik.</p>
+                <p>Kami bekerja sama dengan penjahit independen yang terampil untuk memastikan setiap produk dibuat dengan kehormatan dan standar tertinggi.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://via.placeholder.com/600x400/333/fff?text=Sustainable+Materials" alt="Bahan Berkelanjutan">
+            </div>
+        </section>
+        
+        <section class="quality-commitment">
+            <div class="container">
+                <h2>Mengapa Memilih EUREKA?</h2>
+                <div class="commitment-grid">
+                    <div class="commitment-item">
+                        <i class="fas fa-gem"></i>
+                        <h3>Kualitas Material</h3>
+                        <p>Hanya menggunakan kain bersertifikat dan bahan baku premium.</p>
+                    </div>
+                    <div class="commitment-item">
+                        <i class="fas fa-ruler-combined"></i>
+                        <h3>Potongan Abadi</h3>
+                        <p>Desain klasik yang tidak lekang oleh waktu dan tren.</p>
+                    </div>
+                    <div class="commitment-item">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Produksi Etis</h3>
+                        <p>Kesejahteraan setiap pengrajin adalah prioritas utama kami.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer><div class="footer-content container"><div class="footer-section about"><h4>EUREKA</h4><p>Luxury is in Simplicity.</p></div><div class="footer-section links"><h4>Layanan</h4><ul><li><a href="#">Kebijakan Retur</a></li><li><a href="#">FAQ</a></li></ul></div><div class="footer-section contact"><h4>Hubungi Kami</h4><p>Email: halo@eureka.com</p><div class="social-links"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a></div></div></div><div class="copyright"><p>&copy; 2025 EUREKA Luxury Fashion. All Rights Reserved.</p></div></footer>
+    <a href="https://wa.me/628123456789" target="_blank" class="whatsapp-float" aria-label="Chat via WhatsApp" style="position: fixed; bottom: 25px; right: 25px; background-color: #1a1a1a; color: white; border-radius: 50px; line-height: 20px; padding: 15px 20px; z-index: 1000; text-decoration: none; box-shadow: 0 4px 8px rgba(0,0,0,0.3); font-weight: bold;"><i class="fab fa-whatsapp"></i> Chat Kami</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.getElementById('main-nav');
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (nav.classList.contains('active')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); } else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+            });
+        });
+    </script>
+</body>
+</html>
